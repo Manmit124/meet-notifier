@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Google Meet Background Notifier",
+  "version": "1.3",
+  "description": "Notifies when someone joins a Meet, even when you're in different tabs",
+  "permissions": [
+    "notifications",
+    "tabs",
+    "scripting",
+    "storage",
+    "alarms",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://meet.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "./icon.png",
+    "48": "./icon.png",
+    "128": "./icon.png"
+  },
+  "action": {
+    "default_icon": "./icon.png",
+    "default_popup": "popup.html"
+  }
+}
